@@ -53,6 +53,23 @@ The server provides three main tools that analyze go.mod files:
 3. `visualize_dependencies` - Creates a visualization from go.mod content
    - Parameters: `goMod` (string) - Content of go.mod file
 
+## Windsurf Integration
+
+To integrate with Windsurf, add the following configuration to your Windsurf MCP configuration file (typically located at `~/.codeium/windsurf/mcp_config.json`):
+
+```json
+{
+  "mcpServers": {
+    "go-deps-manager": {
+      "transport": "http",
+      "serverUrl": "http://localhost:8080/mcp/sse"
+    }
+  }
+}
+```
+
+After adding this configuration and starting the server with `./go-deps-mcp -http -port 8080`, you can access the Go Dependency Analyzer tools directly from Windsurf.
+
 ## Docker Deployment
 
 A Dockerfile is provided for easy containerization and deployment:
